@@ -30,8 +30,8 @@ A user-friendly temperature conversion tool built using **Pygame**. This project
 
 1. Clone this repository to your local machine:
    ```bash
-   git clone https://github.com/your-username/temperature-conversion-program.git
-   cd temperature-conversion-program
+   git clone https://github.com/shamiroxs/PRODIGY_SD_1.git
+   cd PRODIGY_SD_1
    ```
 
 2. Install the required dependencies:
