@@ -5,6 +5,12 @@ Software Development Internship of InfoTech Prodigy
 
 A user-friendly temperature conversion tool built using **Pygame**. This project is part of a task for the **Prodigy Infotech Internship**. It demonstrates the integration of GUI components, interactive elements, and dynamic animations.
 
+---
+
+### Screenshot
+
+![Temperature Conversion Program](image.png)
+
 ### Features
 
 - **Interactive Input Methods**:
@@ -17,12 +23,6 @@ A user-friendly temperature conversion tool built using **Pygame**. This project
   - Instruction text fades in, out, and blinks when the value is `0`.
 - **Clean and Intuitive Interface**:
   - Color-coded results for better readability.
-
----
-
-### Screenshot
-
-![Temperature Conversion Program](image.png)
 
 ---
 
