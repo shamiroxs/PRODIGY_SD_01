@@ -2,15 +2,12 @@ import pygame
 import sys
 import math
 
-# Initialize pygame
 pygame.init()
 
-# Screen dimensions
 WIDTH, HEIGHT = 600, 400
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Temperature Conversion Program')
 
-# Colors
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 CYAN = (0, 255, 255)
@@ -20,29 +17,21 @@ LIGHT_GREEN = (150, 255, 150)
 DARK_GRAY = (50, 50, 50)
 HOVER_COLOR = (100, 100, 100)
 
-# Fonts
 FONT = pygame.font.Font(None, 32)
 LABEL_FONT = pygame.font.Font(None, 24)
 
-# Temperature range
 TEMP_MIN, TEMP_MAX = -250, 250
-slider_pos = WIDTH // 2  # Initial position of the slider
-
-# Initial temperature value
+slider_pos = WIDTH // 2 
 temp_celsius = 0
 
-# Text field variables
 input_active = False
 text_input = "0"
 
-# Circle positions
 circle_radius = 50
-circle_positions = [(150, 300), (450, 300)]  # Fahrenheit, Kelvin
+circle_positions = [(150, 300), (450, 300)] #faren & kelvin
 
-# Slider dragging flag
 slider_dragging = False
 
-# Variables for fade and blink
 fade_alpha = 0
 
 
@@ -62,17 +51,16 @@ def draw_instructions(temp_celsius, mouse_pos):
     """Draw instructions with hover effect and fade in/out."""
     global fade_alpha
 
-    # Define colors
     normal_color = (150, 150, 150)
     hover_color = (200, 200, 200)
 
     # Determine whether to show instructions based on temperature value
     if temp_celsius == 0:
-        # Adjust fade-in effect
+        # fade-in effect
         if fade_alpha < 255:
             fade_alpha += 10
     else:
-        # Adjust fade-out effect
+        # fade-out effect
         if fade_alpha > 0:
             fade_alpha -= 10
 
@@ -80,10 +68,8 @@ def draw_instructions(temp_celsius, mouse_pos):
     if fade_alpha == 0:
         return
 
-    # Instruction text
     instructions = "Enter/Drag the Celsius value"
 
-    # Render text with hover effect
     text_surface = LABEL_FONT.render(instructions, True, hover_color if is_hovering(mouse_pos) else normal_color)
     text_surface.set_alpha(fade_alpha)  # Set transparency
     text_rect = text_surface.get_rect(center=(WIDTH // 2, 100))
@@ -126,14 +112,11 @@ def celsius_to_kelvin(c):
     """Convert Celsius to Kelvin."""
     return c + 273.15
 
-
-# Main loop
 clock = pygame.time.Clock()
 
 while True:
     screen.fill(BLACK)
 
-    # Event handling
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -178,16 +161,13 @@ while True:
     fahrenheit = celsius_to_fahrenheit(temp_celsius)
     kelvin = celsius_to_kelvin(temp_celsius)
     
-    # Mouse Position
     mouse_pos = pygame.mouse.get_pos()
     
-    # Draw elements
     draw_text_field()
     draw_instructions(temp_celsius, mouse_pos)
     draw_slider()
     draw_circles(fahrenheit, kelvin)
 
-    # Update screen
     pygame.display.flip()
     clock.tick(60)
 
